@@ -4,6 +4,7 @@
   "description": "\"Knit\" is an online store of handmade. Study project on NodeJS.",
   "main": "index.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -12,5 +13,8 @@
   },
   "keywords": [],
   "author": "Olga Bachishe",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
 }
