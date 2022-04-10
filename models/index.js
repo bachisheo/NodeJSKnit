@@ -1,5 +1,5 @@
 'use strict';
-
+//file system module
 const fs = require('fs');
 const path = require('path');
 const Sequelize = require('sequelize');
@@ -33,5 +33,7 @@ Object.keys(db).forEach(modelName => {
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+db.products = require("./product.js")(sequelize, Sequelize);
+db.sellers = require("./seller.js")(sequelize, Sequelize);
 
 module.exports = db;
