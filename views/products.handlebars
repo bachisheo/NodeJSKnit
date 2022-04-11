@@ -1,1 +1,24 @@
 <h1>товарики</h1>
+<div class=" row justify-content-center p-e-5 ">
+    {{#each products}}
+        <div class=" col-6 col-md-5 col-lg-4 col-xl-3 card-container">
+            <div class="card">
+                <a href="product_view.html" class="stretched-link"></a>
+                <div class="image-container ">
+                    <div class="square-image card-img-top " style="background-image: url(image/dog1.jpg);"></div>
+                </div>
+                <div class="card-body">
+                    <p class="card-subtitle">{{name}}</p>
+                    <div class="row justify-content-between ">
+                        <h5 class="col card-title"> {{price}} ₽</h5>
+                        <img class="col-auto" src="/image/heart.png" width="25" height="25" alt="">
+                    </div>
+                    <p class="card-text"><small class="text-danger">Остался последний экземпляр</small></p>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <p>Нет продуктов, доступных для покупки.</p>
+    {{/each}}
+
+</div>

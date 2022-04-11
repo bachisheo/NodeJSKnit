@@ -6,11 +6,11 @@ const ProductModel = require('../models/product');
 //Get product list
 router.get('/', (req, res) =>
     ProductModel.findAll()
-    .then(prod =>{
-        console.log(prod);
+    .then(products =>{
+        console.log(products);
         //set a view name
         res.render('products',{
-            prod
+            products
         })
     })
     .catch(err => console.log(err)));
