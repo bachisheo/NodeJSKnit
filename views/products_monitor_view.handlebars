@@ -1,0 +1,35 @@
+<main class="container col-md-10" id="content">
+    <div class=" row justify-content-center p-e-5 ">
+        <div class=" row justify-content-center p-e-5 ">
+            <div class=" col-6 col-md-5 col-lg-4 col-xl-3 card-container">
+                <div class="card-edit">
+                    <a href="/products/add" class="stretched-link"></a>
+                    <img class="card-img-top mb-0" style=" transform: scale(0.35);" src="/image/plus_black.png" alt="+">
+                    <h5 class="col card-title text-center">Добавить товар</h5>
+                </div>
+            </div>
+            {{#each products}}
+            <div class=" col-6 col-md-5 col-lg-4 col-xl-3 card-container">
+                <div class="card-edit" >
+                    <div class="image-container">
+                        <a href="/product/{{id}}" class="stretched-link"></a>
+                        <div class="square-image card-img-top"
+                            style="background-image: url(/uploads/{{image}});">
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-subtitle">{{name}}</p>
+                        <h5 class="col card-title">{{price}} ₽</h5>
+                        <hr style="margin-bottom:0;">
+                        <div class=" row justify-content-center p-2 ">
+                            <a href="/edit/{{id}}" class="col-5 btn btn-outline-primary border-0 m-1">
+                                <img class="col-auto" src="/image/edit.png" width="25" height="25" alt=""></a>
+                            <a href="/delete/{{id}}" class="col-5 btn btn-outline-danger border-0 m-1">
+                                <img class="col-auto" src="/image/delete.png" width="25" height="25" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+</main>

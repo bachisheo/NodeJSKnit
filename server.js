@@ -26,7 +26,7 @@ app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname,'public')));
 
 //routes
-app.use('/products/', require('./routes/products'));
+app.use('/', require('./routes/products'));
 
 //Test db
 db.authenticate()
