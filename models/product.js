@@ -1,9 +1,11 @@
+
 const {
-  DataTypes
+    DataTypes
 } = require('sequelize');
 
-module.exports = sequelize => {
-  const attributes = {
+const db = require('../config/database');
+
+const attributes = {
     id: {
       type: DataTypes.BIGINT,
       allowNull: false,
@@ -81,12 +83,12 @@ module.exports = sequelize => {
       autoIncrement: false
     }
   };
-  const options = {
+const options = {
     tableName: "product",
     comment: "",
     indexes: [],
     timestamps: false
   };
-  const ProductModel = sequelize.define("product_model", attributes, options);
-  return ProductModel;
-};
+
+const ProductModel = db.define('product_model', attributes, options);
+module.exports = ProductModel;

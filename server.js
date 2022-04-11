@@ -2,8 +2,8 @@ const http = require('http');
 const express = require('express');
 const path = require('path');
 const app = express();
-const db = require("./models/index");
-const products = db.products;
+const db = require("./config/database");
+
 
 app.use(express.json());
 
@@ -20,15 +20,8 @@ app.get('/', function(req,res){
     res.sendFile(path.join(__dirname+'/express/templates/index.html'));
     //__dirname : It will resolve to your project folder.
 });
-///Get main page
-app.get('/all', (req, res) =>{
-    products.findOne().then(function (user) {
-        console.log(user.get('name'));
-    });
-    products.findAll().then(function(result) {
-        console.log(JSON.stringify(result));
-        res.send(JSON.stringify(result));
-    });
-    console.log('I got ads.');
 
-})
+//Test db
+db.authenticate()
+    .then(()=> console.log("db work"))
+    .catch(err => console.log(("db don't work")));

@@ -1,5 +1,12 @@
 const express = require('express');
 const router = express.Router();
-
-router.get('/', (req, res) => res.send('bbb'));
-module.exports = router;
+//const db = require('../models/database');
+const ProductModel = require('../models/product');
+router.get('/', (req, res) =>
+    ProductModel.findAll()
+    .then(prod =>{
+        console.log(prod);
+        res.sendStatus(200);
+    })
+    .catch(err => console.log(err)));
+ module.exports = router;
