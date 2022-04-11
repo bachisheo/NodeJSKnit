@@ -8,7 +8,10 @@ router.get('/', (req, res) =>
     ProductModel.findAll()
     .then(prod =>{
         console.log(prod);
-        res.sendStatus(200);
+        //set a view name
+        res.render('products',{
+            prod
+        })
     })
     .catch(err => console.log(err)));
 
