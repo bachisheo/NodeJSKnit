@@ -36,7 +36,7 @@ const attributes = {
     is_made_to_order: {
       type: DataTypes.BOOLEAN,
       allowNull: true,
-      defaultValue: null,
+      defaultValue: false,
       comment: null,
       primaryKey: false,
       field: "is_made_to_order",
@@ -54,7 +54,7 @@ const attributes = {
     seller_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
-      defaultValue: null,
+      defaultValue: 1,
       comment: null,
       primaryKey: false,
       field: "seller_id",
@@ -67,7 +67,7 @@ const attributes = {
     price: {
       type: DataTypes.DOUBLE,
       allowNull: false,
-      defaultValue: null,
+      defaultValue: 0,
       comment: null,
       primaryKey: false,
       field: "price",
