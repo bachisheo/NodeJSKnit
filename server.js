@@ -1,27 +1,27 @@
 const http = require('http');
 const express = require('express');
-const path = require('path');
-const app = express();
 const db = require("./config/database");
+const {engine} = require('express-handlebars');
+const port = 3000;
+const path = require('path');
 
-
+const app = express();
 app.use(express.json());
 
 const server = http.createServer(app);
-const port = 3000;
 server.listen(port);
 console.debug('Server listening on port ' + port);
 
+//Middleware for handlebars
+app.engine('handlebars', engine());
+app.set('view engine', 'handlebars');
+app.set('defaultLayout', 'main');
+app.use(express.static(path.join(__dirname,'public')));
+
 //routes
 app.use('/products/', require('./routes/products'));
-app.get('/pr', (req, res) => res.send("aaaa"));
-
-app.get('/', function(req,res){
-    res.sendFile(path.join(__dirname+'/express/templates/index.html'));
-    //__dirname : It will resolve to your project folder.
-});
 
 //Test db
 db.authenticate()
     .then(()=> console.log("db work"))
-    .catch(err => console.log(("db don't work")));
+    .catch(err => console.log(("db don't work: " + err)));
