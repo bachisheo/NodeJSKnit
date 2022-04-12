@@ -2,50 +2,34 @@
     <h3>Добавление товара</h3>
     <form action="/add" method="post">
     <div class="mb-3">
-        <label for="item-name" class="form-label">Название</label>
-        <input type="text" class="form-control" id="item-name">
+        <label for="name" class="form-label">Название</label>
+        <input type="text" class="input-box" id="name" name="name" value="{{name}}">
     </div>
     <div class="mb-3">
         <label for="about-textarea" class="form-label">Описание</label>
-        <textarea class="form-control" id="about-textarea" rows="3"></textarea>
+        <textarea class="form-control" id="about-textarea" rows="3" name="description"
+        value="{{description}}"></textarea>
     </div>
     <div class="mb-3">
         <label for="choose-foto" class="form-label">Фото</label>
         <div class="input-group">
             <input type="file" class="form-control" id="choose-foto" aria-describedby="btn-upload"
-                   aria-label="Upload">
+                   aria-label="Upload" name="image">
             <button class="btn btn-outline-secondary" type="button" id="btn-upload">Загрузить</button>
         </div>
     </div>
-    <div class="mb-3 col-sm-6">
-        <label for="category-select" class="form-label">Категория</label>
-        <select class="form-select" id="category-select">
-            <option selected>Не указано</option>
-            <option value="1">Одежда</option>
-            <option value="2">Декор</option>
-            <option value="3">Украшения</option>
-        </select>
-    </div>
-    <div class="mb-3 col-sm-6">
-        <label for="material-select" class="form-label">Материалы</label>
-        <select class="form-select" id="material-select">
-            <option selected>Не указано</option>
-            <option value="1">Пряжа</option>
-            <option value="2">Ткань</option>
-            <option value="3">Дерево</option>
-        </select>
-    </div>
+
     <div class="mb-3 col-sm-6">
         <label for="item-name" class="form-label">Стоимость</label>
         <div class="input-group">
-            <input type="number" class="form-control">
+            <input type="number" class="form-control" name="price" id="price" value="{{price}}">
             <span class="input-group-text"> ₽</span>
         </div>
     </div>
     <div class="mb-3 col-sm-6">
-        <label for="count-textarea" class="form-label">В наличии</label>
+        <label for="count" class="form-label">В наличии</label>
         <div class="input-group">
-            <input type="number" class="form-control" id="count-textarea">
+            <input type="number" class="form-control" id="count" name="count" value="{{count}}">
             <span class="input-group-text"> шт.</span>
         </div>
     </div>
@@ -57,10 +41,10 @@
     </div>
     <div class="row justify-content-around mb-3">
         <div class="col-auto">
-            <a href="#" class="btn btn-secondary">Отмена</a>
+            <input type="reset" class="btn btn-secondary" value="Отмена">
         </div>
         <div class="col-auto ">
-            <a href="#" class="btn btn-primary">Сохранить</a>
+            <input type="submit" value="Сохранить" class="btn btn-primary">
         </div>
     </div>
     </form>

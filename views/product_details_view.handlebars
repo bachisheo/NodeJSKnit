@@ -1,0 +1,62 @@
+<main>
+    <div class="container col-md-10 mt-3 ">
+        <div class="row justify-content-between">
+            <div class="col-md-7" id="product_foto">
+                <div class="row justify-content-between">
+                    <h5 class="col-10">{{product.name}}</h5>
+                    <div class=" col-1 align-self-end me-3 ">
+                        <div class="rounded-circle btn-outline-light">
+                            <img src="/image/heart.png" width="20" height="20" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div id="carouselExampleIndicators" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="/uploads/{{product.image}}" class="rounded mx-auto d-block " alt="Шапка для кота 1">
+                        </div>
+
+                    </div>
+                    <button class="carousel-control-prev" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon btn-dark rounded-circle" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" data-bs-target="#carouselExampleIndicators"
+                            data-bs-slide="next">
+                        <span class="carousel-control-next-icon btn-dark rounded-circle" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="col-md-5 mt-3" id="product_info">
+                <div class="">
+                    <div class=" container-fluid">
+
+                        <h4 class=" m-0">{{product.price}} ₽</h4>
+                        <p><small class="text-muted">Под заказ</small></p>
+                        <h5 class=" m-0">Описание</h5>
+                        <p class="text">{{product.description}}
+                        </p>
+                        <p class="text">
+                            Статус: Под заказ
+                        </p>
+                        <a href="#" class="btn btn-primary">Оформить заказ</a>
+                        <p class="pt-3 m-0">Елена Никитишна</p>
+                        <p><small class="text-muted">Продано 43 товара</small></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -5,7 +5,12 @@ const {engine} = require('express-handlebars');
 const port = 3000;
 const path = require('path');
 const Handlebars = require('Handlebars');
+//need to use data with handlebar
+//todo fix: need use more secure method
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
+//need to use forms
+const bodyParser = require('body-parser');
+
 
 const app = express();
 app.use(express.json());
@@ -20,14 +25,13 @@ app.engine('handlebars', engine({
     // ...implement newly added insecure prototype access
     handlebars: allowInsecurePrototypeAccess(Handlebars)
 }));
-
 app.set('view engine', 'handlebars');
-
 app.use(express.static(path.join(__dirname,'public')));
 
 //routes
-app.use('/', require('./routes/products'));
+app.use('/', require('./routes/products_routes'));
 
+app.use(bodyParser.urlencoded({extends : false}))
 //Test db
 db.authenticate()
     .then(()=> console.log("db work"))
