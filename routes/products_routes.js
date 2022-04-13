@@ -1,6 +1,28 @@
 const express = require('express');
 const router = express.Router();
 const ProductModel = require('../models/product');
+const mp = require('multiparty');
+
+//Display add product form
+router.get('/test', (req, res) => res.render('edit_product_view'));
+
+//Create a product
+router.post('/test', (req, res) =>{
+    const form = new mp.Form();
+    form.parse(req, (err, fields, files) =>{
+        if(err) res.send('err');
+        res.send(fields.bbb.toString());
+
+    });
+
+});
+function myFunc(a) {
+    console.log("yo");
+}
+
+
+
+
 //delete product
 router.get('/delete/:id', (req, res) =>{
     const {id} = req.params;

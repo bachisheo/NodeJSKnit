@@ -5,6 +5,7 @@ const {engine} = require('express-handlebars');
 const port = 3000;
 const path = require('path');
 const Handlebars = require('Handlebars');
+
 //need to use data with handlebar
 //todo fix: need use more secure method
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access');
@@ -23,7 +24,8 @@ console.debug('Server listening on port ' + port);
 app.engine('handlebars', engine({
     defaultLayout: 'main',
     // ...implement newly added insecure prototype access
-    handlebars: allowInsecurePrototypeAccess(Handlebars)
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+
 }));
 app.set('view engine', 'handlebars');
 app.use(express.static(path.join(__dirname,'public')));
