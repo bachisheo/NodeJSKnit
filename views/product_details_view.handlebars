@@ -44,12 +44,14 @@
                     <div class=" container-fluid">
 
                         <h4 class=" m-0">{{product.price}} ₽</h4>
-                        <p><small class="text-muted">Под заказ</small></p>
+                        {{#if product.is_made_to_order}} <p><small class="text-muted">Под заказ</small></p>{{/if}}
                         <h5 class=" m-0">Описание</h5>
                         <p class="text">{{product.description}}
                         </p>
-                        <p class="text">
-                            Статус: Под заказ
+                        {{#if product.is_made_to_order}} <p class="text"> Статус: Под заказ </p>{{/if}}
+
+                        <p>
+                            В наличии {{product.count}} шт.
                         </p>
                         <a href="#" class="btn btn-primary">Оформить заказ</a>
                         <p class="pt-3 m-0">Елена Никитишна</p>

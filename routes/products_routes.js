@@ -64,17 +64,27 @@ router.get('/add', (req, res) => res.render('add_product_view'));
 
 //Create a product
 router.post('/add', (req, res) =>{
-    //each attribute must have the same name on form view
-    let{name, description, price, count} = req.body;
-    //create a promise and insert into table
-    ProductModel.create({
-        name,
-        description,
-        price,
-        count,
-    })
-        .then(prod => res.redirect('/detail/' + prod.id))
-        .catch(err => console.log("can't add product: " + err));
+    //get attribute from form view
+    const form = new mp.Form();
+    let _fields;
+    form.parse(req, (err, fields, files) =>{
+        if(err) res.send('err');
+        let name = fields.name.toString();
+        let description = fields.description.toString();
+        let price = fields.price.toString();
+        let count = fields.count.toString();
+        let toOrder = false;
+        
+        ProductModel.create({
+            name,
+           description,
+            price,
+            count,
+            toOrder
+        })
+            .then(prod => res.redirect('/detail/' + prod.id))
+            .catch(err => console.log("can't add product: " + err));
+    });
 });
 
 //Product monitor

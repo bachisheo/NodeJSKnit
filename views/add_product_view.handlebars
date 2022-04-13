@@ -1,6 +1,6 @@
 <main class="container col-md-8" id="content">
     <h3>Добавление товара</h3>
-    <form action="/add" method="post">
+    <form action="/add" method="post" enctype="multipart/form-data">
     <div class="mb-3">
         <label for="name" class="form-label">Название</label>
         <input type="text" class="input-box" id="name" name="name" value="{{name}}">
@@ -34,8 +34,8 @@
         </div>
     </div>
     <div class="col col-md-6 form-check mb-4 align-self-end ">
-        <input class="form-check-input" type="checkbox" value="" id="is-to-order">
-        <label class="form-check-label" for="is-to-order">
+        <input class="form-check-input" type="checkbox" value="{{is_made_to_order}}" id="is_made_to_order" name="is_made_to_order[]">
+        <label class="form-check-label" for="is_made_to_order">
             Изготавливается под заказ
         </label>
     </div>
